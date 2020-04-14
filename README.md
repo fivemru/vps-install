@@ -4,17 +4,35 @@
 apt-get update && apt-get upgrade -y && apt-get install -y mc
 ```
 
-## Create user
+## Create user, setup ssh
 
 ```
-adduser fivem
+sudo adduser fivem
 usermod -aG sudo fivem
+su fivem
+mkdir /home/fivem/.ssh 0600
 ```
 
-## Setup ssh
+Generate ssh key on the **local machine**:
 
 ```
-tee /etc/ssh/sshd_config <<EOF
+ssh-keygen -o -t ed25519 -f id_hh
+```
+
+Copy public key from `id_hh.pub` file on the **local** machine
+
+And
+
+Paste it to `/home/fivem/.ssh/authorized_keys` file on the **server**
+
+```
+nano /home/fivem/.ssh/authorized_keys
+```
+
+### Setup ssh
+
+```
+sudo tee /etc/ssh/sshd_config <<EOF
 Port 22022
 HostKey /etc/ssh/ssh_host_ed25519_key
 PermitRootLogin no
@@ -31,14 +49,6 @@ AcceptEnv LANG LC_*
 Subsystem sftp  /usr/lib/openssh/sftp-server
 EOF
 ```
-
-Generate ssh key on the local machine:
-
-```
-ssh-keygen -o -t ed25519
-```
-
-Copy/paste public key from `id_file.pub` file to the server `~/.ssh/authorized_keys`.
 
 Restart ssh server
 
