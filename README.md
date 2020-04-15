@@ -1,7 +1,7 @@
 ## Install mc
 
 ```
-apt-get update && apt-get upgrade -y && apt-get install -y mc
+apt-get update && apt-get upgrade -y && apt-get install -y mc && apt-get install -y git
 ```
 
 ## Create user, setup ssh
