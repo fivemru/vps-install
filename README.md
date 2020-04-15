@@ -59,9 +59,9 @@ sudo systemctl restart ssh
 Setup firewall
 
 ```
-sudo ufw status verbose
 sudo ufw allow 22022/tcp
 sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
 sudo ufw enable
+sudo ufw status verbose
 ```
