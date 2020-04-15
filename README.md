@@ -9,7 +9,7 @@ apt-get update && apt-get upgrade -y && apt-get install -y mc && apt-get install
 ```
 sudo adduser fivem
 usermod -aG sudo fivem
-su fivem
+su fivem && cd ~
 mkdir /home/fivem/.ssh 0600
 ```
 
