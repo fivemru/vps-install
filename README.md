@@ -9,8 +9,8 @@ apt-get update && apt-get upgrade -y && apt-get install -y mc && apt-get install
 ```
 sudo adduser fivem
 usermod -aG sudo fivem
-su fivem && cd ~
-mkdir /home/fivem/.ssh 0600
+su fivem && cd /home/$USER
+mkdir /home/fivem/.ssh -m 0600
 ```
 
 Generate ssh key on the **local machine**:
